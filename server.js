@@ -38,23 +38,22 @@ app.post(
 
 // Middlewares
 app.use(express.json({ limit: "20kb" }));
-app.use(express.static(path.join(__dirname, "uploads")));
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
   console.log(`mode: ${process.env.NODE_ENV}`);
 }
 
-// Limit each IP to 100 requests per `window` (here, per 15 minutes)
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100,
-  message:
-    "Too many accounts created from this IP, please try again after an hour",
-});
+// // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 minutes
+//   max: 100,
+//   message:
+//     "Too many accounts created from this IP, please try again after an hour",
+// });
 
-// Apply the rate limiting middleware to all requests
-app.use("/api", limiter);
+// // Apply the rate limiting middleware to all requests
+// app.use("/api", limiter);
 
 // Middleware to protect against HTTP Parameter Pollution attacks
 app.use(
@@ -69,6 +68,10 @@ app.use(
   })
 );
 
+// Serve static files
+app.use(express.static(path.join(__dirname, "uploads")));
+console.log("Static files served from:", path.join(__dirname, "uploads"));
+
 // Mount Routes
 mountRoutes(app);
 
@@ -79,7 +82,7 @@ app.all("*", (req, res, next) => {
 // Global error handling middleware for express
 app.use(globalError);
 
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 const server = app.listen(PORT, () => {
   console.log(`App running running on port ${PORT}`);
 });
