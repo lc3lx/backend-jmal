@@ -43,7 +43,7 @@ homepageImageSchema.index({ type: 1, isActive: 1, order: 1 });
 // Virtual for image URL
 const setImageURL = (doc) => {
   if (doc.image) {
-    const imageUrl = `${process.env.BASE_URL}/homepage/${doc.image}`;
+    const imageUrl = `${process.env.BASE_URL}/uploads/homepage/${doc.image}`;
     console.log("Setting homepage image URL:", imageUrl);
     doc.image = imageUrl;
   }
