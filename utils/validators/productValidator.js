@@ -13,6 +13,23 @@ exports.createProductValidator = [
       req.body.slug = slugify(val);
       return true;
     }),
+  check("description")
+    .notEmpty()
+    .withMessage("Product description is required")
+    .isLength({ min: 20 })
+    .withMessage("Description must be at least 20 chars"),
+  check("duration")
+    .notEmpty()
+    .withMessage("Product duration is required")
+    .isIn(["1 month", "3 months", "6 months", "1 year"])
+    .withMessage("Invalid duration"),
+  check("stock")
+    .notEmpty()
+    .withMessage("Product stock is required")
+    .isNumeric()
+    .withMessage("Stock must be a number")
+    .custom((val) => val >= 0)
+    .withMessage("Stock must be 0 or more"),
   check("sold")
     .optional()
     .isNumeric()
@@ -41,19 +58,6 @@ exports.createProductValidator = [
         }
       })
     ),
-
-  check("ratingsAverage")
-    .optional()
-    .isNumeric()
-    .withMessage("ratingsAverage must be a number")
-    .isLength({ min: 1 })
-    .withMessage("Rating must be above or equal 1.0")
-    .isLength({ max: 5 })
-    .withMessage("Rating must be below or equal 5.0"),
-  check("ratingsQuantity")
-    .optional()
-    .isNumeric()
-    .withMessage("ratingsQuantity must be a number"),
 
   validatorMiddleware,
 ];

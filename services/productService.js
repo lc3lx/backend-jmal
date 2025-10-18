@@ -20,7 +20,7 @@ exports.uploadProductImages = uploadMixOfImages([
 exports.resizeProductImages = asyncHandler(async (req, res, next) => {
   // console.log(req.files);
   //1- Image processing for imageCover
-  if (req.files.imageCover) {
+  if (req.files && req.files.imageCover) {
     const imageCoverFileName = `product-${uuidv4()}-${Date.now()}-cover.jpeg`;
 
     await sharp(req.files.imageCover[0].buffer)
@@ -33,7 +33,7 @@ exports.resizeProductImages = asyncHandler(async (req, res, next) => {
     req.body.imageCover = imageCoverFileName;
   }
   //2- Image processing for images
-  if (req.files.images) {
+  if (req.files && req.files.images) {
     req.body.images = [];
     await Promise.all(
       req.files.images.map(async (img, index) => {
@@ -49,9 +49,9 @@ exports.resizeProductImages = asyncHandler(async (req, res, next) => {
         req.body.images.push(imageName);
       })
     );
-
-    next();
   }
+
+  next();
 });
 
 // @desc    Get list of products
