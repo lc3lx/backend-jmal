@@ -1,134 +1,260 @@
-# Course Material and FAQ for my NodeJS - Build a Full E-Commerce RESTful APIs (بالعربي)
+# Backend - موقع بيع حسابات البث
 
-This repo contains every course section in a single branch and the finished project files for all the projects contained in the master branch
+Backend API مبني على Node.js و Express.js لموقع بيع حسابات خدمات البث المباشر.
 
-Choose the section branch that you study, and **final code to compare it with your own code whenever something doesn't work**!
-
-## Join To Discord Channel For Updates [discord](https://discord.gg/e2nwBNU2q9)
-
-👇 **_Please read the following Frequently Asked Questions (FAQ) carefully before starting the course_** 👇
-
-## FAQ
-
-### Q1: How do I download the files?
-
-**A:** If you're new to GitHub and just want to download the entire code, hit the green button saying "Code", and then choose the "Download ZIP" option.
-
-### Q2: I'm stuck in one of the projects. Where do I get help?
-
-**A:** Have you actually tried to fix the problem on your own? Have you compared your code to the final code? If you failed fixing your problem, please **post a detailed description of the problem to the Q&A area of that video over at Udemy**, along with a [codepen](https://codepen.io/pen/) containing your code. You will get help there. Please don't send me a personal message or email to fix coding problems.
-
-### Q3: I want to put the project in my portfolio. Is that allowed?
-
-**A:** Absolutely! Just make sure you actually built it yourself by following the course, and that you understand what you did. What is **not allowed** is that you create your own course/videos/articles based on this course's content!
-
-### Q4: Do you accept pull requests?
-
-**A:** No, for the simple reason that I want this repository to contain the _exact_ same code that is shown in the videos. However, please feel free to add an issue if you found one.
-
-## Course Highlights
-
-1- Project Overview
-
-خلال هذا القسم هيتم استعراض مشروع المتجر الإلكتروني اللي هيتم تنفيذه خلال هذا الكورس ... مهم جدا تتفرج عليه بتركيز عشان تكون عارف ايه المميزات اللي هتتنفذ خلال المشروع ده
-
-2- How Web Work
-
-خلال القسم ده هنتكلم شويه عن اساسيات النتورك وازاي الويب بيشتغل عشان كله يكون عنده الاساسيات اللي هنبني عليها اللي جاي وفي نفس الوقت نكون عارف احنا مكانا فين بالظبط وايه دورنا واحنا بنكتب كود
-
-3- Preparing Tools And Environment
-
-خلال القسم ده هنبدأ نجهز بيئة العمل بتاعتنا والمحرر اللي هنبدأ نشتغل عليه
-
-4- Preparing Express Server And Mongodb
-
-خلال القسم ده هنبدأ نجهز الاكسبريس اب بتاعنا ونبدأ ننشأ السيرفر ونربط التطبيق بتاعنا بالداتا بيز وكمان هنشرح الستراكشر بتاع الملفات اللي هنشتغل بيه خلال المشروع اللي هننفذه
-
-5- Categories CRUD Operations
-
-خلال القسم ده هنبدأ التنفيذ الفعل لفيتشر الاقسام داخل المتجر الالكتروني الاقسام دي ممكن تكون ملابس او الكترونيات ..إلى آخره.
-
-6- Advanced Error Handling & Adding Validation Layer
-
-من السكاشن المهمة جدا اللي هنشرح فيها ازاي اكسبريس بيتعامل مع الايرورز وهنبدأ نشوف ازاي نمسك الايرورز دي ونتحكم في شكلها والشكل النهائي اللي هيرجع للمستخدم وكمان هنشوف ازاي نمسك باقي الايرورز اللي ممكن تحصل في باقي التطبيق غير اكسبريس
-
-7- SubCategories CRUD & Brands CRUD Operations
-
-خلال القسم ده هنبدأ ننفذ الاقسام الفرعية اللي هتكون بتنتمي للاقسام الرئيسية بمعني ان القسم الرئيسي ينتمي ليه قسم او اكثر فرعي .. بالاضافه للعمل علي فيشتر البراندات
-
-8- Products CRUD Operations
-
-خلال القسم ده هنبدأ نشتغل علي فيتشر المنتج وهنشوف ازاي نعمل انشاء وتعديل وحذف للمنتج .. بالاضافة ازاي نعمل بحث وازاي نعمل ترتيب للمنتج سواء بسعره او عدد المبيعات للمنتج او غيره .. ازاي كمان نعمل فلتر للمنتج سواء بالقسم اللي بينتمي ليه واو العلامة التجارية وغيره
-
-9- Upload Single And Multiple Images And Image Processing
-
-خلال القسم ده هنشوف ازاي نعمل رفع لصوره واحدة او اكتر من صورة .. وهنشوف ازاي نحسن من العمليات اللي هتم علي الصورة عشان يحسن من الاداء .. وهنتعامل مع الايرورز اللي ممكن تظهرك لما ترفع فايل غير الصور .. وهنبدأ نضيف الصور للمنتج بتاعنا
-
-10- Authentication And Authorization
-
-خلال القسم ده هنشرح عمليه المصادقة بشكل تفصيلي وهنشوف ازاي تسجيل الدخول وانشاء الحساب ونسيت كلمه المرور وازاي بتعمل التوكن وازاي بنعمل عمليه التحقق عليه ..كمان هنشتغل علي صلاحيات المستخدمين وهيكون عندنا ادمن ومانجر ويوزر عادي وكل واحد ليه صلاحيات مختلفة عن التاني... القسم ده مهم جدا وهتستفاد منه جدا
-
-11- Reviews, Wishlist And User Addresses
-
-خلال القسم ده هنبدأ نشتغل علي التقييمات وهنشوف ازاي هنمكن المتسخدم انه يضيف تقييم علي المنتجات وكمان هنحسب متوسط عدد التقييمات علي المنتج الواحد بالاضافة للعدد الكلي للتقيمات علي المنتج الواحد ، كمان هنشرح ازاي نمكن المسخدم انه يضيف منتج لقائمة المفضلة وفي نفس الوقت يقدر يحذفه ، كمان هنمكن المستخدم من انه يضيف عنوان لدفتر العناوين بتاعه يقدر يستخدمه لما يجي يطلب اوردر .
-
-12- Coupons And Shopping Cart
-
-خلال القسم ده هنبدأ نمكن الادمن من انه ينشأ الكوبونات وكل كوبون بيكون ليه تاريخ معين ينتهي فيه ونسبة خصم معينة بيحددها الادمن ... والمستخدم هيقدر يستخدم الكوبون ده عشان يتسفاد من الخصم .. كمان هنمكن المستخدم من انه ينشأ سلة المنتجات اللي هيبدأ يضيف فيها المنتجات اللي عايز يشتريها ويعدل يختار ويعدل في كمية المنتجات لو متاح كمية منها في المخزن بالاضافة انه يقدر يضيف كوبون خصم علي السلة .
-
-13- Cash And Online Orders, Online Payments And Deployments
-
-خلال القسم ده هنبدأ نشتغل علي الاورد ر او الطلبية سواء الاوردر ده هيتم دفعه كاش او عند الاستلام او الاوردر ده هيتم دفعه من خلال بطاقة دفع او محفظة الكترنية زي ابل باي او غيره .. هيتم الربط مع بوابة الدفع ونشوف ايه وسائل الدفع اللي بتوفرها بوابة الدفع وهنعمل عميلة الدفع من خلالها ... وهنشوف ازاي بنشوف عملية الدفع نجحت ولا لا .. وازاي نعمل اوردر في حالة نجاح عملية الدفع .. هنتكلم بالتفصيل عن الدفع الكاش والدفع الالكتروني .. وفي الاخر هنرفع التطبيق علي هيروكو عشان تقدر تشاركه مع الفرونت اند او تحط اللينك في البرورتفوليو بتاعك
-
-14- Security
-
-خلال القسم ده هنتكلم شويه عن وسائل الامان اللي ممكن تستخدمها عشان تأمن التطبيق بتاعك
-
-## PayPal Integration Setup
-
-تم تحديث المشروع ليدعم الدفع عبر PayPal بدلاً من Stripe. لإعداد PayPal:
-
-### 1. إنشاء حساب PayPal Developer
-
-- اذهب إلى [PayPal Developer](https://developer.paypal.com/)
-- سجل حساب جديد أو سجل دخول بحسابك الموجود
-- أنشئ تطبيق جديد في Dashboard
-
-### 2. الحصول على API Credentials
-
-- في لوحة التحكم، اذهب إلى Apps & Credentials
-- أنشئ تطبيق جديد أو استخدم موجود
-- احصل على:
-  - Client ID
-  - Client Secret
-
-### 3. إعداد المتغيرات البيئية
-
-في ملف `config.env` أضف:
+## 🏗️ البنية
 
 ```
-PAYPAL_CLIENT_ID=your-paypal-client-id
-PAYPAL_CLIENT_SECRET=your-paypal-client-secret
-PAYPAL_WEBHOOK_ID=your-paypal-webhook-id
-NODE_ENV=sandbox  # للتجربة، أو production للإنتاج
+backend/
+├── config/           # إعدادات قاعدة البيانات
+├── middlewares/      # Middleware functions
+├── models/          # Mongoose models
+├── routes/          # API routes
+├── services/        # Business logic
+├── utils/           # Helper functions
+├── uploads/         # الملفات المرفوعة
+└── server.js        # نقطة البداية
 ```
 
-### 4. إعداد Webhooks (اختياري للإنتاج)
+## 📦 Models
 
-- في PayPal Developer Dashboard، أنشئ webhook
-- URL: `https://yourdomain.com/webhook-checkout`
-- Events: `PAYMENT.CAPTURE.COMPLETED`
+### Product Model
 
-### ملاحظات مهمة:
+```javascript
+{
+  title: String,           // اسم الباقة
+  slug: String,
+  description: String,     // وصف الباقة (جديد)
+  duration: String,        // مدة الاشتراك (جديد)
+  sold: Number,
+  price: Number,
+  stock: Number,           // عدد الحسابات المتوفرة (جديد)
+  imageCover: String,
+  category: ObjectId,
+  timestamps: true
+}
+```
 
-- في وضع التجربة (sandbox) استخدم بطاقات اختبار PayPal
-- العملة المستخدمة: الدولار الأمريكي (USD)
-- Webhook verification غير مفعل حالياً - فعله للإنتاج
+### Order Model
 
-15- Enhancements
+```javascript
+{
+  user: ObjectId,
+  product: ObjectId,           // منتج واحد فقط (تم التبسيط)
+  price: Number,
+  totalOrderPrice: Number,
+  paymentMethodType: String,   // cash or card
+  isPaid: Boolean,
+  paidAt: Date,
+  accountEmail: String,        // بريد الحساب (جديد)
+  accountPassword: String,     // كلمة المرور (جديد)
+  accountDetails: String,      // تفاصيل إضافية (جديد)
+  isDelivered: Boolean,
+  deliveredAt: Date,
+  timestamps: true
+}
+```
 
-خلال القسم ده هنضيف فيه التحسينات اللي هتتضاف في الكورس ... بالاضافة لو فيه مشاكل ظهرت هنسجلها فيديو ونضيفه في السكشن ده
+### Category Model
 
-16- Appendix
+```javascript
+{
+  name: String,
+  slug: String,
+  image: String,
+  timestamps: true
+}
+```
 
-خلال القسم ده هضفلكم شويه دروس عن الجافا سكريبت عشان ترجعو ليها لو عايز تتاسس فيها عشان تساعدك وانت شغال في الكورس
+### User Model
+
+```javascript
+{
+  name: String,
+  slug: String,
+  email: String,
+  phone: String,
+  profileImg: String,
+  password: String,
+  passwordChangedAt: Date,
+  passwordResetCode: String,
+  passwordResetExpires: Date,
+  passwordResetVerified: Boolean,
+  role: String, // user, manager, admin
+  active: Boolean,
+  timestamps: true
+}
+```
+
+### Coupon Model
+
+```javascript
+{
+  name: String,
+  expire: Date,
+  discount: Number,
+  timestamps: true
+}
+```
+
+## 🚀 API Endpoints
+
+### Authentication
+
+- `POST /api/v1/auth/signup` - تسجيل مستخدم جديد
+- `POST /api/v1/auth/login` - تسجيل الدخول
+- `POST /api/v1/auth/forgotPassword` - نسيت كلمة المرور
+- `POST /api/v1/auth/verifyResetCode` - التحقق من كود إعادة التعيين
+- `PUT /api/v1/auth/resetPassword` - إعادة تعيين كلمة المرور
+
+### Products
+
+- `GET /api/v1/products` - الحصول على جميع المنتجات
+- `GET /api/v1/products/:id` - الحصول على منتج محدد
+- `POST /api/v1/products` - إضافة منتج جديد (Admin)
+- `PUT /api/v1/products/:id` - تعديل منتج (Admin)
+- `DELETE /api/v1/products/:id` - حذف منتج (Admin)
+
+### Categories
+
+- `GET /api/v1/categories` - الحصول على جميع التصنيفات
+- `GET /api/v1/categories/:id` - الحصول على تصنيف محدد
+- `POST /api/v1/categories` - إضافة تصنيف (Admin)
+- `PUT /api/v1/categories/:id` - تعديل تصنيف (Admin)
+- `DELETE /api/v1/categories/:id` - حذف تصنيف (Admin)
+
+### Orders
+
+- `POST /api/v1/orders` - إنشاء طلب جديد (User)
+- `GET /api/v1/orders` - الحصول على جميع الطلبات
+- `GET /api/v1/orders/:id` - الحصول على طلب محدد
+- `PUT /api/v1/orders/:id/pay` - تحديث حالة الدفع (Admin)
+- `PUT /api/v1/orders/:id/account` - إضافة معلومات الحساب (Admin)
+
+### Users
+
+- `GET /api/v1/users` - الحصول على جميع المستخدمين (Admin)
+- `GET /api/v1/users/:id` - الحصول على مستخدم محدد (Admin)
+- `POST /api/v1/users` - إضافة مستخدم (Admin)
+- `PUT /api/v1/users/:id` - تعديل مستخدم (Admin)
+- `DELETE /api/v1/users/:id` - حذف مستخدم (Admin)
+- `GET /api/v1/users/getMe` - الحصول على بيانات المستخدم الحالي
+- `PUT /api/v1/users/updateMe` - تحديث بيانات المستخدم الحالي
+- `PUT /api/v1/users/changeMyPassword` - تغيير كلمة المرور
+
+### Coupons
+
+- `GET /api/v1/coupons` - الحصول على جميع الكوبونات (Admin)
+- `GET /api/v1/coupons/:id` - الحصول على كوبون محدد (Admin)
+- `POST /api/v1/coupons` - إضافة كوبون (Admin)
+- `PUT /api/v1/coupons/:id` - تعديل كوبون (Admin)
+- `DELETE /api/v1/coupons/:id` - حذف كوبون (Admin)
+
+### Homepage Images
+
+- `GET /api/v1/homepage-images` - الحصول على صور الصفحة الرئيسية
+- `POST /api/v1/homepage-images` - إضافة صورة (Admin)
+- `DELETE /api/v1/homepage-images/:id` - حذف صورة (Admin)
+
+## 🔐 المصادقة
+
+يستخدم المشروع JWT للمصادقة. يتم إرسال التوكن في Header:
+
+```
+Authorization: Bearer <token>
+```
+
+## 🛡️ الصلاحيات
+
+### User
+
+- تصفح المنتجات والتصنيفات
+- إنشاء طلبات
+- عرض طلباته الشخصية
+- تعديل بياناته الشخصية
+
+### Admin/Manager
+
+- جميع صلاحيات المستخدم
+- إدارة المنتجات والتصنيفات
+- إدارة الطلبات وإضافة معلومات الحسابات
+- إدارة المستخدمين
+- إدارة الكوبونات
+
+## 📝 ملاحظات التطوير
+
+### تم إزالة:
+
+- ❌ Cart Model & Routes
+- ❌ Review Model & Routes
+- ❌ Wishlist من User Model
+- ❌ Addresses من User Model
+- ❌ PayPal integration (يمكن إضافته لاحقاً)
+
+### تم إضافة:
+
+- ✅ حقول للمنتج: description, duration, stock
+- ✅ حقول للطلب: accountEmail, accountPassword, accountDetails
+- ✅ نظام شراء مباشر بدون سلة
+
+## 🚀 التشغيل
+
+1. تثبيت الحزم:
+
+```bash
+npm install
+```
+
+2. إنشاء ملف `config.env`:
+
+```env
+NODE_ENV=development
+PORT=8000
+BASE_URL=http://localhost:8000
+DB_URI=mongodb://localhost:27017/streaming-accounts
+JWT_SECRET=your-secret-key
+JWT_EXPIRE_TIME=90d
+```
+
+3. تشغيل السيرفر:
+
+```bash
+npm start:dev
+```
+
+## 📦 الحزم المستخدمة
+
+- express - Web framework
+- mongoose - MongoDB ODM
+- bcryptjs - تشفير كلمات المرور
+- jsonwebtoken - المصادقة
+- express-validator - التحقق من البيانات
+- multer - رفع الملفات
+- sharp - معالجة الصور
+- dotenv - متغيرات البيئة
+- cors - Cross-origin resource sharing
+- morgan - HTTP request logger
+- compression - Response compression
+- hpp - HTTP Parameter Pollution protection
+- express-rate-limit - Rate limiting
+
+## 🔧 Middleware
+
+- `errorMiddleware.js` - معالجة الأخطاء
+- `uploadImageMiddleware.js` - رفع الصور
+- `validatorMiddleware.js` - التحقق من البيانات
+
+## 📁 Uploads Structure
+
+```
+uploads/
+├── categories/    # صور التصنيفات
+├── products/      # صور المنتجات
+├── users/         # صور المستخدمين
+├── brands/        # صور البراندات
+└── homepage/      # صور الصفحة الرئيسية
+```
+
+---
+
+**ملاحظة**: تأكد من إعداد MongoDB قبل تشغيل المشروع.

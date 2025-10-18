@@ -14,8 +14,16 @@ const productSchema = new mongoose.Schema(
       required: true,
       lowercase: true,
     },
-
-   
+    description: {
+      type: String,
+      required: [true, "Product description is required"],
+      minlength: [20, "Too short product description"],
+    },
+    duration: {
+      type: String,
+      required: [true, "Subscription duration is required"],
+      enum: ["1 month", "3 months", "6 months", "1 year"],
+    },
     sold: {
       type: Number,
       default: 0,
@@ -26,45 +34,25 @@ const productSchema = new mongoose.Schema(
       trim: true,
       max: [200000, "Too long product price"],
     },
-    
-
-
+    stock: {
+      type: Number,
+      required: [true, "Stock is required"],
+      default: 0,
+    },
     imageCover: {
       type: String,
       required: [true, "Product Image cover is required"],
     },
-
     category: {
       type: mongoose.Schema.ObjectId,
       ref: "Category",
       required: [true, "Product must be belong to category"],
     },
-
-  
-    ratingsAverage: {
-      type: Number,
-      min: [1, "Rating must be above or equal 1.0"],
-      max: [5, "Rating must be below or equal 5.0"],
-      // set: (val) => Math.round(val * 10) / 10, // 3.3333 * 10 => 33.333 => 33 => 3.3
-    },
-    ratingsQuantity: {
-      type: Number,
-      default: 0,
-    },
   },
   {
     timestamps: true,
-    // to enable virtual populate
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
   }
 );
-
-productSchema.virtual("reviews", {
-  ref: "Review",
-  foreignField: "product",
-  localField: "_id",
-});
 
 // Mongoose query middleware
 productSchema.pre(/^find/, function (next) {
